@@ -1,0 +1,45 @@
+#metaform-cards-img {
+  width: 150px;
+  height: 210px;
+  position: relative; }
+  #metaform-cards-img div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 210px;
+    border: 2px solid black;
+    border-radius: 5px; }
+  #metaform-cards-img .black {
+    background: black;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  #metaform-cards-img .white {
+    background: white; }
+
+.item:hover #metaform-cards-img .black {
+  z-index: 10; }
+
+
+.inline{
+  display: inline;
+}
+
+#para {
+  display: inline;
+  width: 100px;
+  animation: fade 1.2s ease-in-out alternate infinite paused;
+}
+
+.item:hover #para{
+  animation-play-state: running;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 100%; } }
