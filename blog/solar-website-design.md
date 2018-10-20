@@ -1,17 +1,19 @@
 # How to Build a Low-tech Website: Design Techniques and Process
 Marie Otsuka
 
-Low-tech Magazine is a technology website that looks at sustainable historical alternatives to modern-day tech. In the summer of 2017, Lauren Traugott-Campbell and I received a grant from the Maharam Foundation to work with Low-tech Magazine's creator/chief editor, Kris De Decker, to redefine its design. The project provoked an interesting question: what does it mean to design a sustainable website? Together with Roel Roscam Abbing, Rotterdam-based artist and researcher, we developed a website that radically reduced the energy used to access its content. It recently launched at [solar.lowtechmagazine.com](https://solar.lowtechmagazine.com/).
+Low-tech Magazine is a technology website that looks at sustainable historical alternatives to modern-day tech. A radical redesign, intended to minimize the energy used to access its content, recently launched at [solar.lowtechmagazine.com](https://solar.lowtechmagazine.com/).
 
-This article focuses on the processes and front-end efforts involved in this project, and is a compendium to [How to Build a Low-tech Website](https://solar.lowtechmagazine.com/2018/09/how-to-build-a-lowtech-website.html), which summarizes our primary design decisions and motivations, and [How to build a Low-Tech website: Software & Hardware](https://homebrewserver.club/low-tech-website-howto.html), which documents the back-end technical details. It's written as an introductory text for those with basic knowledge of front-end languages (HTML, CSS, JS.)
+This article / wiki focuses on the front-end efforts involved in this project, and is a compendium to [How to Build a Low-tech Website](https://solar.lowtechmagazine.com/2018/09/how-to-build-a-lowtech-website.html), which summarizes our primary design decisions and motivations, and [How to build a Low-Tech website: Software & Hardware](https://homebrewserver.club/low-tech-website-howto.html), which documents the back-end technical details. It's written as an introductory text for those with basic knowledge of front-end languages (HTML, CSS, JS.)
 
-Part 1 reviews some specific techniques used in the design. Part 2 delves into how we used a static site generator to redesign the whole website development process.
+Part 1 reviews some specific techniques used in the design. Part 2 delves into the process of static site generation and development, and how that fits into the larger ecosystem of the internet.
+
+Some background: the website is a static site generated with [Pelican](http://docs.getpelican.com/en/stable/), and the theme stylesheets were developed using [SCSS](https://sass-lang.com/). 
 
 # Part 1: Design
 
 A core part of the design process was to interrogate which design elements and features can be sacrificed and which are absolutely necessary for the site's purposes. What kind of changes in user experience can question our relationship to the internet, while still being functional? 
 
-In considering internet sustainability, the design of a website constitutes the majority of energy use. "[F]rontend components—JavaScript, images, CSS/ HTML, and other assets, plus page rendering tasks a browser must perform—comprised between 76 to 92% of total page load time. Because design decisions drive so much of what happens on the frontend, designers clearly have a critical role to play in creating optimized solutions." (Tim Frick, Designing for Sustainability.) Considering this, our design approach was to prioritize using the least amount of resources to enable a website that can be powered from a small-scale solar panel.
+In considering internet sustainability, the design of a website constitutes the majority of energy use. "[F]rontend components—JavaScript, images, CSS/ HTML, and other assets, plus page rendering tasks a browser must perform—comprised between 76 to 92% of total page load time. Because design decisions drive so much of what happens on the frontend, designers clearly have a critical role to play in creating optimized solutions." (Tim Frick, *Designing for Sustainability*.) Considering this, our design approach was to prioritize using the least amount of resources to enable a website that can be powered from a small-scale solar panel.
 
 
 ## Logo
@@ -27,25 +29,25 @@ This approach avoids the need to distribute these assets but also strengthens th
 
 ## Default typeface
 
-In the early decades of the web, we only saw system fonts used on the web. The so-called system fonts such as Arial, Times New Roman, Georgia, and Verdana were most likely to be available on all operating systems, whether Windows / Mac or other. This ensured that the website will more or less look consistent for the majority of users. 
+In the early decades of the web, we only saw system fonts used on the web. System fonts such as Arial, Times New Roman, Georgia, and Verdana were most likely to be available on all operating systems, whether Windows / Mac or other. This ensured that the website will more or less look consistent for the majority of users. 
 
-Now, with the `@font-face` rule and webfont distributors, it's extremely easy to embed a typeface within a website. (In fact, this has unintentionally led to enabling mass piracy of typefaces.) But they come at a cost: custom fonts impact performance, often adding several seconds of load time to a page. Several strategies by name of [FOUT, FOIT, or FOFT](https://css-tricks.com/fout-foit-foft/) address this issue.
+Now, with the `@font-face` rule and webfont distributors, it's extremely easy to embed a typeface within a website. But they come at a cost: custom fonts impact performance, often adding several seconds of load time to a page. Several strategies by name of [FOUT, FOIT, or FOFT](https://css-tricks.com/fout-foit-foft/) address this issue. (An unintentional side effect was also that it led to enabling mass piracy of typefaces.) 
 
-With customized typefaces all over the web, it's often easy to overlook that even before the website's CSS kicks in, the "user-agent" stylesheet, or your browser settings, applies styles to the website. One of the first things we realize as front-end designers is that all the website-specific styling we see is simply overriding these browser defaults.
+With customized typefaces all over the web, it's often easy to overlook the fact that even before the website's CSS kicks in, the "user-agent" stylesheet, or your browser settings, applies styles to the website. One of the first things we learn as front-end designers is that all the website-specific styling we see is simply overriding these browser defaults.
 
-This design leverages these defaults, not only to avoid having to load more assets, but also to reiterate the role of the browser in website access. Furthermore, only one weight (regular) of a font is used, demonstrating a content hierarchy that can be established without loading multiple typefaces and weights. 
+This design leverages these defaults, as it does not declare a `font-family` at all. This not only avoids having to load more assets, but also reiterates the role of the browser in website access. Moreover, only one weight (regular) of a font is used, demonstrating that typographic hierarchy that can be established without loading multiple typefaces and weights. 
 
-This empowers the user to customize the look / feel to their own choosing: if users dislike the typeface displayed on the site, they can go into their browser settings to change this. Below are screenshots of this process in commonly used browsers.
-
-#### Chrome
-Go to Settings, and scroll down to Appearance, then select Customize Fonts `chrome://settings/fonts`
-
-![chrome](img/chrome.png)
+The lack of a `font-family` declaration also empowers the user to customize the look / feel to their own choosing: if users dislike the typeface displayed on the site, they can go into their browser settings to change this. Below are screenshots of this process in commonly used browsers.
 
 #### Firefox
 Go to Preferences, and in General, scroll to Language and Appearance to see Fonts & Colors  `about:preferences`
 
 ![firefox](img/firefox.png)
+
+#### Chrome
+Go to Settings, and scroll down to Appearance, then select Customize Fonts `chrome://settings/fonts`
+
+![chrome](img/chrome.png)
 
 #### Safari
 It looks like newer version of Safari have removed the font customization feature, which used to be in the Appearance tab of Preferences. The latest version barely has any out-of-the box controls, although it looks like it allows you to use your own stylesheet if you know CSS.
@@ -55,11 +57,13 @@ It looks like newer version of Safari have removed the font customization featur
 
 
 ## Images
+The lightest websites would exist without any images or graphical elements. That said, imagery is an important part of communicating content. We used several techniques for compressing
+
 
 ### Dithered images
-Instead of using full-color high-resolution images, we chose to convert all images to black and white, with 4 levels of gray in-between. See Roel's [dithering plugin](https://homebrewserver.club/low-tech-website-howto.html#image-compression) for more details on this conversion.
+Instead of using full-color high-resolution images, we chose to convert all images to black and white, with 4 levels of gray in-between via a custom [dithering plugin](https://homebrewserver.club/low-tech-website-howto.html#image-compression).
 
-As several readers have noted, certain images are better suited for other forms of compression. But our goal was to not only compress images, but also to call to attention this act of compression. And considering that the majority of Kris' articles feature archival black and white imagery, compressing into a file format with indexed color (in which the number of colors determines its weight) was most appropriate for the limited color palette.
+As several readers have noted, certain images are better suited for other forms of compression. But our goal was to not only compress images, but also to call to attention this act of compression. And considering that the majority of articles feature archival black and white imagery, compressing into a file format with indexed color (in which the number of colors determines its weight) was most appropriate for the limited color palette.
 
 Moreover, we found that dithered images can be stretched beyond their actual image size to emphasize its distinct aesthetic, and that these artifacts of compression can become an integral part of the design. 
 
@@ -110,7 +114,7 @@ HTML
 
 ### SVG
 
-SVGs can be used either as an image file (externalfile.svg) or pasted into the html file as inline code (`<svg></svg>`). Any application capable of producing vector drawings should be able to export in SVG format, and simply opening the file in a text editor reveals its code. Inline SVGs allow us to prevent load requests for images. While there may be advantages to caching a loaded image performance-wise, inline SVGs also have another benefit: they can be styled with css classes. Thus, any icon that would require hover states are in inline SVG format. One note: because SVGs are essentially images, the syntax for SVGS differs from styling HTML elements. Read more on [SVGs at MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial).
+SVGs can be used either as an image file (`externalfile.svg`) or pasted into the html file as inline code (`<svg></svg>`). Any application capable of producing vector drawings should be able to export in SVG format, and simply opening the file in a text editor reveals its code. Inline SVGs allow us to prevent load requests for images. While there may be advantages to caching loaded images, inline SVGs also have another benefit: they can be styled with css classes. Thus, any icon that would require hover states are in inline SVG format. (One note: because SVGs are essentially images, the syntax for SVGS differs from styling HTML elements. Read more on [SVGs at MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial).)
 
 Inline SVG
 
@@ -141,6 +145,73 @@ a:hover {
 	.svg_fill{
 		fill: grey;
 	}
+}
+```
+
+### Image sprites
+Another technique to minimize server requests is the use of [image sprites](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS), which combines multiple small images into one to minimize HTTP requests.
+Storage-wise, six image files (150 x 150 each) totalled 9KB, whereas the combined image (150 x 900) is a 6KB file that only loads once.
+
+JavaScript adds weather-specific CSS classes read from the existing server stats, which pulls weather information from DarkSky.net(https://darksky.net/forecast/41.3829,2.1774/us12/en). 
+The CSS file then sets up the image as a background and adjusts which part of the image to display according to the class.
+
+```js
+var weather_ignore = ["snow", "sleet", "wind", "fog"]; //because Barcelona is paradise
+var weather_data = ["today", "tomorrow", "day_after_t"];
+var weather_days = ["today", "tomorrow", "day after tomorrow"];
+var forecast = "";
+
+//build forecast string to show weather icons
+for (i = 0; i < weather_data.length; i++) {
+    var key = weather_data[i]; //for each day
+    var icon_name = key + "_icon"; //today_icon, etc
+    var text = data[key]; //weather description
+
+    var weather_icon;
+    //use cloud icon for all overcast weather
+    if(weather_ignore.includes(data[icon_name])){
+      weather_icon = "cloudy";
+    }else{
+      weather_icon = data[icon_name];
+    }
+    forecast += '<span class="weather_day" id="' + key + '" title="' + text + '">' + weather_days[i] + '</span><span class="weather_icon ' + weather_icon +'"> </span><span class="weather_text"> ' + text + '</span>';
+}
+
+//add it to wherever there is class "forecast" 
+var weatherinfo = document.querySelectorAll('.forecast');
+[].forEach.call(weatherinfo, function(target) {
+    target.innerHTML = forecast;
+});
+```
+
+![icon sprite](img/weather_sprite.png)
+
+```css
+.weather_icon {
+  background: url(/extra/weather_sprite.png);
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  top: 3px;
+  background-size: 6rem;
+	background-position: -2rem 0;
+}
+
+.partly-cloudy-day {
+  background-position: -1rem 0;
+}
+.clear-day {
+  background-position: 0 0;
+}
+.clear-night {
+  background-position: -3rem 0;
+}
+.partly-cloudy-night {
+  background-position: -4rem 0;
+}
+.rain {
+  background-position: -5rem 0;
 }
 ```
 
@@ -225,24 +296,53 @@ if (data.ac_power == "0W") {
 The icons are stored as inline SVGs and written into the page along with the other server statistics.
 
 
-
-
 ### Server dashboard
 
-In addition to the battery level, other information about the website server is visible with a statistics dashboard. This includes contextual information of the server's location in Barcelona: the time, the current sky conditions, the upcoming forecast, and the duration since the server last shut down due to insufficient power. This is another to make the backend context of the website visible.
+In addition to the battery level, other information about the website server is visible with a statistics dashboard — these stats are simply pulled from the json. This includes contextual information of the server's location in Barcelona: the time, the current sky conditions, the upcoming forecast, and the duration since the server last shut down due to insufficient power. This is another effort to make the backend context of the website visible.
 
 
 ## Print Styles
 
-The new version of the website features printer-friendly styling that maximizes page widths.
-...
+The new version of the website features printer-friendly styling.
+Styling for printing is similar to styling for mobile devices — but instead of setting rules by break point, we use [print media queries](https://developer.mozilla.org/en-US/docs/Web/Guide/Printing).
 
+```css
+@media print {
 
+}
+```
+Among various typographic adjustments for print, a large modification was to condense the text into a 2-column layout to maximizes page width while maintaining a reasonable measure (width of paragraph.)
+
+```css
+	.entry-content {
+		columns: 2; //number of columns to divide up the content
+		column-gap: 20pt; //gutter
+	}
+
+```
+
+Some other considerations include avoiding images to break across pages. (This property has mixed browser support; some browsers inherently avoid this even without this css. )
+```
+	p.img {
+		page-break-inside: avoid;
+	}
+
+```
+and displaying the URLs to linked texts — a technique borrowed from [CSS tricks](https://css-tricks.com/snippets/css/print-url-after-links/).
+
+```
+	a:after{
+		content:" (" attr(href) ") ";
+		font-size: 0.8rem;
+		font-weight:normal;
+	}
+
+```
 
 
 
 ### Sources
 
-- Frick, Tim. Designing for Sustainability: A Guide to Building Greener Digital Products and Services. O’Reilly Media, August 2016.
-- Christie, James. "Sustainable Web Design." https://alistapart.com/article/sustainable-web-design
+- Frick, Tim. Designing for Sustainability: A Guide to Building Greener Digital Products and Services. O’Reilly Media, August 2016. <http://shop.oreilly.com/product/0636920043904.do>
+- Christie, James. "Sustainable Web Design." <https://alistapart.com/article/sustainable-web-design>
 
