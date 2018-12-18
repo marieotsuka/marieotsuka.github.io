@@ -12,6 +12,15 @@ body {
 	text-align: center;
 }
 
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover{
+	color: #450E38;
+}
+
 h1,h2 {
 	font-weight: 600;
 }
