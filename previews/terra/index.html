@@ -5,7 +5,8 @@
 	<title>Terra Foundation for American Art | Season's Greetings</title>
 	<meta name="description" content="Terra Foundation for American Art Holiday Video">
 	<meta name="author" content="Terra Foundation for American Art">
-	<link rel="stylesheet" href="https://use.typekit.net/gvb2yxo.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="http://cloud.webtype.com/css/4fee303d-a661-4016-86d1-990a45181b38.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,23 +15,22 @@
 </header>
 <main>
 <div class="video-container">
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/EnyfHTJVzh8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<div id="player"></div>
+	<div id="thumbnail_container" class="thumbnail_container">
+		<a class="start-video"></a>
+		<img src="img/play.svg" class="play-button">
+	</div>
+
 </div>
+
 </main>
-
-<!-- <div id="player"></div>
-<div id="thumbnail_container" class="thumbnail_container">
-    <img class="thumbnail" id="thumbnail" />
-</div>
-<a class="start-video"><img width="64" src="http://image.flaticon.com/icons/png/512/0/375.png" style="filter: invert(100%); -webkit-filter: invert(100%);"></a>
- -->
-
 <footer>
-<h1><span class="greeting">Season’s Greetings</span><span class="pipe"> | </span><span class="greeting">Meilleurs Vœux</span></h1>
+<h1><span class="greeting">Season’s Greetings</span><span class="pipe">&nbsp; | &nbsp;</span><span class="greeting">Meilleurs Vœux</span></h1>
 
-<a href="https://www.terraamericanart.org/"><img src="img/terra_logo.svg" class="logo"></a>
+<img src="img/terra_logo.svg" class="logo">
 <h2><a href="https://conversations.terraamericanart.org/">conversations.terraamericanart.org</a></h2>
 </footer>
+<script src="//www.youtube.com/iframe_api"></script>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
