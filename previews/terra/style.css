@@ -26,11 +26,11 @@ h1,h2 {
 }
 
 h1{
-	font-size: 1.8rem;
-	margin-bottom: 1.5rem;
+	font-size: 3.3vh;
+	margin-bottom: 2vh;
 }
 h2{
-	font-size: 1.5rem;
+	font-size: 2.4vh;
 }
 header {
 	text-align: left;
@@ -38,14 +38,15 @@ header {
 }
 
 header img{
-	width: 180px;
-	margin: 1rem 3.75rem .8rem;
+	width: 20vh;
+	margin: 1.7vh;
+	margin-left: 3.75rem;
 	display: inline-block;
 
 }
 .logo {
-	width: 100px;
-	margin-bottom: .75rem;
+	width: 12vh;
+	margin-bottom: 1.1vh;
 }
 main{
 	max-height: 75vh;
@@ -113,7 +114,7 @@ div.thumbnail_container
 
 
 footer{
-	padding: 1.75rem;
+	padding: 3vh;
 	height: 15vh;
 }
 
@@ -153,7 +154,7 @@ footer{
 		display: none;
 	}
 	footer {
-		padding: 1rem;
+		padding: .5rem;
 	}
 	.logo {
 		width: 90px;
