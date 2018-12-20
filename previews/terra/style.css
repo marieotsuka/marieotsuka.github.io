@@ -34,7 +34,6 @@ h2{
 }
 header {
 	text-align: left;
-	height: 5vh;
 }
 
 header img{
@@ -114,8 +113,7 @@ div.thumbnail_container
 
 
 footer{
-	padding: 3vh;
-	height: 15vh;
+	padding: 2.4vh;
 }
 
 .pipe {
