@@ -106,7 +106,7 @@ div.thumbnail_container
     width: 100%;
     height: 100%;
     max-height: 79vh;
-    background: url('img/video_cover.jpg') no-repeat 50% 50%;
+    background: url('/wp-content/uploads/2018/12/unwrap/img/video_cover.jpg') no-repeat 50% 50%;
     background-size: cover;
 }
 
