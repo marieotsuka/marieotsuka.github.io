@@ -154,7 +154,7 @@ footer{
 		display: none;
 	}
 	footer {
-		padding: .5rem;
+		padding: .5rem 0 1rem 0;
 	}
 	.logo {
 		width: 90px;
