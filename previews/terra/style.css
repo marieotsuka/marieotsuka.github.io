@@ -128,8 +128,8 @@ footer{
 		padding-left: 0;
 	}
 	header img{
-		margin: 1rem 3.5rem .7rem;
-		width: 180px;
+		margin: .7rem 0 .5rem;
+		min-height: 12px;
 	}
 	h1 {
 		font-size: 1.5rem;
