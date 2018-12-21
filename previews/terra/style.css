@@ -47,6 +47,7 @@ header img{
 .logo {
 	width: 12vh;
 	margin-bottom: 1.1vh;
+	max-width: 115px;
 }
 main{
 	max-height: 75vh;
