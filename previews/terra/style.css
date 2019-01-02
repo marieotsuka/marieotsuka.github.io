@@ -1,0 +1,175 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: "Whitman OSF", serif;
+	font-weight: normal;
+	font-style: normal;
+	color: white;
+	background: #9C2235;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover{
+	color: #450E38;
+}
+
+h1,h2 {
+	font-weight: normal;
+}
+
+h1{
+	font-size: 3.3vh;
+	margin-bottom: 2vh;
+}
+h2{
+	font-size: 2.4vh;
+}
+header {
+	text-align: left;
+	padding-left: 3.75rem;
+}
+
+header img{
+	height: 1.7vh;
+	max-height: 15px;
+	margin-top: 1.8vh;
+	margin-bottom: 1.2vh;
+	display: inline-block;
+}
+.logo {
+	width: 12vh;
+	margin-bottom: 1.1vh;
+	max-width: 115px;
+}
+main{
+	max-height: 75vh;
+	overflow: hidden;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 0;
+    height: 0;
+}
+#player {
+	display: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 75vh;
+}
+
+.start-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    background: #C017A2;
+    width: 180px;
+    height: 180px;
+    margin: -90px 0 0 -90px;
+    border-radius: 50%;
+    padding: 35px 0 0 20px;
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+    transition: opacity .3s ease;
+}
+
+.start-video:hover
+{
+    opacity: 1;
+}
+
+.play-button{
+	width: 75px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -47px 0 0 -30px;
+	pointer-events: none;
+}
+
+div.thumbnail_container
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 75vh;
+    background: url('img/video_cover.jpg') no-repeat 50% 50%;
+    background-size: cover;
+}
+
+
+footer{
+	padding: 2.4vh;
+}
+
+.pipe {
+	position: relative;
+	top: -3px;
+}
+
+@media screen and (max-width: 800px){
+	header {
+		text-align: center;
+		padding-left: 0;
+	}
+	header img{
+		margin: .7rem 0 .5rem;
+		min-height: 12px;
+	}
+	h1 {
+		font-size: 1.5rem;
+		margin: .75rem 0 1rem 0;
+	}
+	h2{
+		font-size: 1rem;
+	}
+	.start-video{
+		width: 120px;
+		height: 120px;
+		margin: -60px 0 0 -60px;
+	}
+	.play-button{
+		width: 50px;
+		margin: -31px 0 0 -20px;
+	}
+	.greeting{
+		display: block;
+	}
+	.pipe{
+		display: none;
+	}
+	footer {
+		padding: .5rem 0 1rem 0;
+	}
+	.logo {
+		width: 90px;
+	}
+}
+
+@media screen and (max-width: 400px){
+	.start-video{
+		width: 90px;
+	    height: 90px;
+	    margin: -45px 0 0 -45px;
+	}
+	.play-button {
+	    width: 37px;
+	    margin: -23px 0 0 -15px;
+	}
+}
