@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta http-equiv="x-ua-compatible" content="ie=edge">
+     	<meta charset="utf-8">
+     	<meta name="viewport" content="width=device-width, initial-scale=1">
+     	<link rel="stylesheet" type="text/css" href="style.css">
+      <title>RISD Global Programs Database</title>
+    </head>
+    <body>
+
+    	<main>
+    		    	<h1>All Programs</h1>
+    	<div id="filters">
+    		RISD Global Program type: 
+    		  <input type="checkbox" id="courses" name="courses"
+    		         checked>
+    		  <label for="courses">Courses</label>
+
+    		  <input type="checkbox" id="exchange" name="exchange"
+    		         checked>
+    		  <label for="exchange">Exchange Partners</label>
+
+    		  <input type="checkbox" id="resesarch" name="resesarch"
+    		         checked>
+    		  <label for="resesarch">Research</label>
+
+			<div class="selections">
+				<div class="class">
+		    		<div class="type">Course Type</div>
+		    		<div class="select">
+		    			 <select>
+		    			 	<option value="Global Summer Studies">Global Summer Studies</option>
+		    			 	<option value="Wintersession Travel Course">Wintersession Travel Course</option>
+		    			 	<option value="Global Field Trip">Global Field Trip</option>
+		    			 	<option value="Partner Initiatives">Partner Initiatives</option>
+		    			 	<option value="EHP">EHP</option>
+		    			</select> 
+		    		</div>
+		    	</div>
+
+		    	<div class="class">
+		    		<div class="type">Research Type</div>
+		    		<div class="select">
+		    			 <select>
+		    			 	<option value="Grants">Grants</option>
+		    			 	<option value="Fellowships">Fellowship</option>
+		    			</select> 
+		    		</div>
+	    		</div>
+	 		</div>
+    	</div>
+    	<div id="data">
+    	   <div class="headers">
+	    		<div class="filter wide">Program Name</div>
+	    		<div class="filter">Type</div>
+				<div class="filter">Semester</div>
+				<div class="filter">Department</div>
+	<!-- 			<div class="filter">Region</div> -->
+				<div class="filter">Country</div>
+				<div class="filter">City</div>
+				<div class="filter">Instructor</div>
+	<!-- 			<div class="filter">Description</div> -->
+				<div class="filter">Eligibility</div>
+				<div class="filter small">Credits</div>
+				<div class="filter">Hashtag</div>
+				<div class="filter">Start Date</div>
+				<div class="filter">End Date</div>
+	<!-- 			<div class="filter">Image</div> -->
+			</div>	
+
+    	</div>
+    	</main>
+    </body>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</html>

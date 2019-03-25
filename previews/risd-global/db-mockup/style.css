@@ -1,0 +1,44 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+main {
+	padding: 1rem;
+	
+}
+
+.headers{
+	font-weight: bold;
+	display: table-header-group;
+}
+.headers,.program{
+	display: table-row;
+}
+
+.filter, .property{
+	display: table-cell;
+	padding: .5rem 1rem .5rem 0;
+	border-bottom: 1px solid #000;
+
+}
+
+.program {
+	padding: .5rem 0;
+}
+
+[data-key="Title"], .wide {
+	min-width: 200px;
+}
+
+.selections {
+	padding-top: 1rem;
+	display: flex;
+}
+
+.class {
+	padding-right: 1rem;
+}
+
+#data {
+	padding-top: 1rem;
+}
