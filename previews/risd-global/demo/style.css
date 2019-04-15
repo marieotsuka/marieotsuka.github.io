@@ -18,7 +18,7 @@ h3, h4, h5, h6 {
   margin-bottom: 1rem; }
 
 .logo {
-  width: 100px; }
+  width: 80px; }
 
 a {
   color: black;
@@ -43,9 +43,6 @@ nav {
     display: flex;
     justify-content: space-around;
     margin-top: .5rem; }
-
-main {
-  margin-top: 70px; }
 
 section {
   height: 100vh;
@@ -135,5 +132,16 @@ footer {
   .cols .col {
     flex: 1;
     padding: 1rem; }
+
+.frame {
+  width: 100px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px; }
+
+.frame.right {
+  left: auto;
+  right: 20px;
+  top: 100px; }
 
 /*# sourceMappingURL=style.css.map */
