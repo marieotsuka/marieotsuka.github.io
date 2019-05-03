@@ -137,7 +137,10 @@ section {
   min-height: 150vh;
   background: #cd25b0;
   background-image: url("../assets/img/demo 21.jpg");
-  background-size: cover !important;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-attachment: fixed !important;
   padding-top: 3rem;
   padding-bottom: 12rem;
@@ -357,6 +360,12 @@ footer {
     nav .close {
       display: block; } }
 @media screen and (max-width: 450px) {
+  section {
+    min-height: 160vh; }
+
+  .pattern {
+    background-size: 300%; }
+
   h1 {
     font-size: 3.5rem; }
 
