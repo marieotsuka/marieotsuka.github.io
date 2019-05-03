@@ -7,10 +7,12 @@ $(document).ready(function(){
     $('.menu').click(function(){
       $('nav').slideDown();
       $('header').removeClass('collapsed');
+      $('body').addClass('fixedPos');
     });
     $('.close').click(function(){
       $('nav').slideUp();
       $('header').addClass('collapsed');
+      $('body').removeClass('fixedPos');
     });
 
 });

@@ -337,6 +337,9 @@ footer {
   stroke: #4d4d4d;
   stroke-width: 2px; }
 
+.fixedPos {
+  position: fixed; }
+
 @media screen and (max-width: 950px) {
   header {
     height: 50px; }
@@ -358,7 +361,11 @@ footer {
     nav .cols {
       display: block; }
     nav .close {
-      display: block; } }
+      display: block; }
+    nav .expanded li {
+      font-size: 1rem; }
+    nav .bar {
+      margin-bottom: .5rem; } }
 @media screen and (max-width: 450px) {
   .floater {
     top: 100vh;
@@ -366,7 +373,8 @@ footer {
 
   section {
     min-height: 200vh;
-    background-attachment: scroll; }
+    background-attachment: scroll;
+    background-size: auto 100%; }
 
   .about .pin {
     top: 100px; }
@@ -374,7 +382,7 @@ footer {
     top: 70vh; }
 
   .pattern {
-    background-size: 300%;
+    background-size: auto 300%;
     background-attachment: scroll; }
 
   h1 {

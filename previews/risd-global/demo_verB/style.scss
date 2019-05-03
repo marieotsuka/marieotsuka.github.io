@@ -465,6 +465,10 @@ footer{
 }
 
 
+.fixedPos{
+	position: fixed;
+}
+
 @media screen and (max-width: 950px) {
 	header {
 		height: 50px;
@@ -491,6 +495,13 @@ footer{
 		.close{
 			display: block;
 		}
+
+		.expanded li{
+			font-size: 1rem;
+		}
+		.bar{
+			margin-bottom: .5rem;
+		}
 	}
 
 }
@@ -505,6 +516,7 @@ footer{
 	section{
 		min-height: 200vh;
 		background-attachment:	scroll;
+		background-size: auto 100%;
 	}
 
 	.about {
@@ -517,7 +529,7 @@ footer{
 	}
 
 	.pattern{
-		background-size: 300%;
+		background-size: auto 300%;
 		background-attachment:	scroll;
 	}
 
