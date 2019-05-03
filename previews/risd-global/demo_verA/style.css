@@ -229,7 +229,7 @@ section::after {
   margin-top: -40%; }
 
 .pos4 {
-  left: 40%;
+  left: 10%;
   margin-top: -50%; }
 
 .flip {
@@ -313,6 +313,8 @@ section::after {
   fill: #ff5000; }
 .learn .postcard:hover .arrow {
   fill: white; }
+.learn .p3 {
+  left: 5%; }
 
 .research .highlight {
   margin-left: 0; }
@@ -337,6 +339,8 @@ section::after {
   border-color: #cd25b0; }
 .engage .bar, .engage .card {
   background: #cd25b0; }
+.engage .p3 {
+  left: 5%; }
 
 .floater .postcard:first-child {
   margin-top: 0; }

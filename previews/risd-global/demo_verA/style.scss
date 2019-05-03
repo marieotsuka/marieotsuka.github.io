@@ -304,7 +304,7 @@ section::after {
 
 
 .pos4 {
-	left: 40%;
+	left: 10%;
 	margin-top: -50%;
 }
 
@@ -429,6 +429,9 @@ section::after {
 			fill: white;
 		}
 	}
+	.p3{
+		left: 5%;
+	}
 
 }
 .research{
@@ -473,6 +476,9 @@ section::after {
 	}
 	.bar, .card{
 		background: $pink;
+	}
+	.p3{
+		left: 5%;
 	}
 }
 
