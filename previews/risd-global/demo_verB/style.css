@@ -360,21 +360,28 @@ footer {
     nav .close {
       display: block; } }
 @media screen and (max-width: 450px) {
+  .floater {
+    top: 100vh;
+    width: 95%; }
+
   section {
-    min-height: 160vh; }
+    min-height: 200vh;
+    background-attachment: scroll; }
+
+  .about .pin {
+    top: 100px; }
+  .about .floater {
+    top: 70vh; }
 
   .pattern {
-    background-size: 300%; }
+    background-size: 300%;
+    background-attachment: scroll; }
 
   h1 {
     font-size: 3.5rem; }
 
   nav {
     width: 100vw; }
-
-  .floater {
-    top: 40vh;
-    width: 95%; }
 
   .about .highlight .summary {
     font-size: 1.6rem; }

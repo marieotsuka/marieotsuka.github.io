@@ -497,12 +497,28 @@ footer{
 
 @media screen and (max-width: 450px) {
 	
+	.floater{
+		top: 100vh;
+		width: 95%;
+	}
+
 	section{
-		min-height: 160vh;
+		min-height: 200vh;
+		background-attachment:	scroll;
+	}
+
+	.about {
+		.pin{
+		top: 100px;
+		}
+		.floater{
+			top:70vh
+		}
 	}
 
 	.pattern{
 		background-size: 300%;
+		background-attachment:	scroll;
 	}
 
 	h1{
@@ -511,10 +527,7 @@ footer{
 	nav{
 		width: 100vw;
 	}
-	.floater{
-		top: 40vh;
-		width: 95%;
-	}
+
 	.about .highlight .summary {
 		font-size: 1.6rem;
 	}
@@ -542,6 +555,7 @@ footer{
 	footer{
 		padding: 0;
 	}
+
 }
 
 @media screen and (min-width: 950px) {
