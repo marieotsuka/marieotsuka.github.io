@@ -1,3 +1,5 @@
+//POSTCARDS
+
 
 * {
 	margin: 0;
@@ -47,6 +49,7 @@ p{
 
 img{
 	width: 100%;
+	display: block;
 }
 
 // LINKS
@@ -67,12 +70,11 @@ a:hover{
 }
 
 a.sublink {
-	color: white;
     padding-bottom: 1px;
     border-bottom: 2px solid white;
 }
 .highlight a.section-link:hover, a.sublink:hover{
-	color: $black;
+	color: $black !important;
 	border-color: $black;
 }
 
@@ -176,25 +178,26 @@ nav {
 }
 
 main {
-	max-width: 900px;
+	max-width: 1000px;
 	margin: auto;
 }
 section {
 	position: relative;
 	margin-bottom: 12rem;
+	overflow: auto;
 }
 
 
 
 .floater {
 	position: relative;
-	height: 80vh;
-	margin-top: 10vh;
+	padding: 5rem 1rem;
 }
 
 ///POSTCARDS----------------------///
 .postcard{
-	position: absolute;
+	// position: absolute;
+	position: relative;
 	width: 600px;
 	height: 450px;
 	transition-property: opacity, background-color, transform;
@@ -205,6 +208,7 @@ section {
 	&:hover{
 		z-index: 10;
 		opacity: 1;
+		cursor: pointer;
 	}
 }
 
@@ -230,6 +234,8 @@ section {
 .back{
 	background: white;
 	height: 450px;
+	-webkit-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 	padding: 1rem;
 	
@@ -250,10 +256,16 @@ section {
 		padding-left: 1rem;
 		text-indent: -10px;
 	}
+
+	.sublink{
+		font-size: .9rem;
+	}
 }
 
 
 .flipped{
+	-webkit-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 }
 
@@ -268,31 +280,35 @@ section {
 }
 
 
-.about .card{
-	background: $pink;
-}
 
 .p1 {
-	left: 100px;
+	left: 15%;
 	top: 0;
 	opacity: 0.5;
 }
 
 .p2 {
-	left: 0;
-	top: 50px;
+	margin-top: -40%;
 	opacity: 0.75;
 }
 
 .p3 {
-	left: 200px;
-	top: 100px;
+	left: 30%;
+	margin-top: -40%;
+}
+
+
+.pos4 {
+	left: 40%;
+	margin-top: -50%;
 }
 
 .flip {
 	position: absolute;
 	right: 0;
-	bottom: -7px;
+	bottom: 0;
+	height: 60px;
+	width: 60px;
 }
 
 .svg-flip{
@@ -327,6 +343,9 @@ section {
 
 .highlight{
 	padding: 2rem;
+	width: 75%;
+	margin-left: 25%;
+	
 	.summary{
 		color: $black;
 		font-size: 1.6rem;
@@ -335,24 +354,25 @@ section {
 	}
 }
 
+.highlight_small {
+	float:right;
+	margin-top: 1rem;
+	width: 50%;
+	padding: 2rem;
+	.thumbnail{
+		margin-right: 1.5rem;
+	}
+}
 
 
-nav .about:hover .bar{
-	background: $pink;
-}
-nav .learn:hover .bar{
-	background: $orange;
-}
-nav .research:hover .bar{
-	background: $green;
-}
-nav .engage:hover .bar{
-	background: $pink;
-}
 
 .about{
 	.highlight{
 		width: 100%;
+		margin: 0;
+		.bar{
+			background: $black;
+		}
 		.summary {
 			font-family: Theinhardt-Light;
 			font-size: 2.8rem;
@@ -361,74 +381,101 @@ nav .engage:hover .bar{
 		}
 	}
 	.highlight_small{
-		background: $pink;
+		color: $pink;
 		width: 75%;
 	}
-	h1,a:hover,.section-link,.pin:after {
+	h1,a:hover,.section-link,.sublink{
 		color: $pink;
 	}
-	.section-link {
+	.section-link,.sublink {
 		border-color: $pink;
 	}
-	.pin {
-		top: 200px;
-		right: 10vw;
+	.bar, .thumbnail, .card{
+		background: $pink;
 	}
 
 }
 
 
 .learn{
-	.pin{
-		background: $orange;
-		left: 20vw;
-		top: 200px;
-	}
-	h1,a:hover,.section-link,.pin:after{
+	h1,a:hover,.section-link,.sublink{
 		color: $orange;
 	}
 	.highlight_small{
-		background: $orange;
-		float: left;
+		color: $orange;
 	}
-	.section-link {
+	.section-link,.sublink{
 		border-color: $orange;
+	}
+	.bar, .card{
+		background: $orange;
+	}
+
+	.svg-flip{
+		.arrow{
+			fill: $orange;
+		}
+	}
+	.postcard:hover{
+		.corner{
+			fill: $orange;
+		}
+		.arrow{
+			fill: white;
+		}
 	}
 
 }
 .research{
-
-	.pin{
-		background: $green;
-		top: 300px;
-		right: 40vw;
+	.highlight {
+		margin-left: 0;
 	}
-	h1,a:hover,.section-link,.pin:after {
+	h1,a:hover,.section-link,.sublink{
 		color: $green;
 	}
-	.highlight{
-		margin-left: 25%;
-	}
-	.section-link {
+
+	.section-link,.sublink {
 		border-color: $green;
+	}
+	.bar, .card{
+		background: $green;
+	}
+
+	.svg-flip{
+		.arrow{
+			fill: $green;
+		}
+	}
+	.postcard:hover{
+		.corner{
+			fill: $green;
+		}
+		.arrow{
+			fill: white;
+		}
 	}
 
 }
 .engage{
-
-	.pin{
-		background: $pink;
-		left: 30vw;
+	.highlight{
+		margin-left: 25%;
 	}
-	h1,a:hover,.section-link,.pin:after {
+	h1,a:hover,.section-link,.sublink{
 		color: $pink;
 	}
-	.section-link {
+	.section-link,.sublink {
 		border-color: $pink;
+	}
+	.bar, .card{
+		background: $pink;
 	}
 }
 
 
+.floater .postcard:first-child{
+	margin-top: 0;
+
+}
 
 
 .bulletins{
@@ -468,6 +515,7 @@ time{
 }
 
 footer{
+	background: white;
 	padding: 1rem;
 	.cell{
 		padding: 1rem;
@@ -482,6 +530,7 @@ footer{
 
 .cols{
 	display: flex;
+	width: 100%;
 }
 .cell{
 	flex: 1;
@@ -515,6 +564,10 @@ footer{
 	stroke-width:2px;
 }
 
+.fixedPos{
+	position: fixed;
+}
+
 
 @media screen and (max-width: 950px) {
 	header {
@@ -542,6 +595,7 @@ footer{
 		.close{
 			display: block;
 		}
+
 	}
 
 }
@@ -549,27 +603,38 @@ footer{
 @media screen and (max-width: 450px) {
 	
 	.floater{
-		top: 100vh;
 		width: 95%;
+		height: 45vh;
+	}
+
+	.postcard{
+		width: 80%;
+		height: auto;
+		.back {
+			height: auto;
+		}
+		p{
+			margin-bottom: 0;
+		}
 	}
 
 	section{
-		min-height: 200vh;
 		background-attachment:	scroll;
+		margin-bottom: 2rem;
 	}
 
-	.about {
-		.pin{
-		top: 100px;
-		}
-		.floater{
-			top:70vh
-		}
+	.p3{
+		left: 10%;
+	}
+	.pos4{
+		left: 0;
+	}
+	.p1{
+		left: 5%;
 	}
 
-	.pattern{
-		background-size: 300%;
-		background-attachment:	scroll;
+	.quote{
+		font-size: 1rem;
 	}
 
 	h1{
@@ -585,6 +650,7 @@ footer{
 	.about .highlight_small, .highlight, .highlight_small {
 		width: 100%;
 		padding: 1.5rem 1.2rem 2rem 1.2rem;
+		margin: 0!important;
 	}
 	.highlight_small {
 		width: 100%;

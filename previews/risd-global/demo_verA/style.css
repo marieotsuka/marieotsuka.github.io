@@ -35,7 +35,8 @@ p {
   margin-bottom: 1rem; }
 
 img {
-  width: 100%; }
+  width: 100%;
+  display: block; }
 
 a {
   color: #4d4d4d;
@@ -50,12 +51,11 @@ a:hover {
   padding: .5rem 1rem; }
 
 a.sublink {
-  color: white;
   padding-bottom: 1px;
   border-bottom: 2px solid white; }
 
 .highlight a.section-link:hover, a.sublink:hover {
-  color: #4d4d4d;
+  color: #4d4d4d !important;
   border-color: #4d4d4d; }
 
 .logo {
@@ -135,20 +135,20 @@ nav {
     transition: background-color 200ms linear; }
 
 main {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto; }
 
 section {
   position: relative;
-  margin-bottom: 12rem; }
+  margin-bottom: 12rem;
+  overflow: auto; }
 
 .floater {
   position: relative;
-  height: 80vh;
-  margin-top: 10vh; }
+  padding: 5rem 1rem; }
 
 .postcard {
-  position: absolute;
+  position: relative;
   width: 600px;
   height: 450px;
   transition-property: opacity, background-color, transform;
@@ -157,7 +157,8 @@ section {
   background-color: transparent; }
   .postcard:hover {
     z-index: 10;
-    opacity: 1; }
+    opacity: 1;
+    cursor: pointer; }
 
 .flipper {
   position: static; }
@@ -177,6 +178,8 @@ section {
 .back {
   background: white;
   height: 450px;
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
   transform: rotateY(180deg);
   padding: 1rem; }
   .back .cell {
@@ -190,8 +193,12 @@ section {
   .back .col2 p {
     padding-left: 1rem;
     text-indent: -10px; }
+  .back .sublink {
+    font-size: .9rem; }
 
 .flipped {
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
   transform: rotateY(180deg); }
 
 .quote {
@@ -202,27 +209,29 @@ section {
 .card-info {
   font-size: .9rem; }
 
-.about .card {
-  background: #cd25b0; }
-
 .p1 {
-  left: 100px;
+  left: 15%;
   top: 0;
   opacity: 0.5; }
 
 .p2 {
-  left: 0;
-  top: 50px;
+  margin-top: -40%;
   opacity: 0.75; }
 
 .p3 {
-  left: 200px;
-  top: 100px; }
+  left: 30%;
+  margin-top: -40%; }
+
+.pos4 {
+  left: 40%;
+  margin-top: -50%; }
 
 .flip {
   position: absolute;
   right: 0;
-  bottom: -7px; }
+  bottom: 0;
+  height: 60px;
+  width: 60px; }
 
 .svg-flip {
   width: 60px; }
@@ -247,73 +256,84 @@ section {
   margin-bottom: 1rem; }
 
 .highlight {
-  padding: 2rem; }
+  padding: 2rem;
+  width: 75%;
+  margin-left: 25%; }
   .highlight .summary {
     color: #4d4d4d;
     font-size: 1.6rem;
     line-height: 1.5;
     margin-bottom: 2rem; }
 
-nav .about:hover .bar {
-  background: #cd25b0; }
-
-nav .learn:hover .bar {
-  background: #ff5000; }
-
-nav .research:hover .bar {
-  background: #00c374; }
-
-nav .engage:hover .bar {
-  background: #cd25b0; }
+.highlight_small {
+  float: right;
+  margin-top: 1rem;
+  width: 50%;
+  padding: 2rem; }
+  .highlight_small .thumbnail {
+    margin-right: 1.5rem; }
 
 .about .highlight {
-  width: 100%; }
+  width: 100%;
+  margin: 0; }
+  .about .highlight .bar {
+    background: #4d4d4d; }
   .about .highlight .summary {
     font-family: Theinhardt-Light;
     font-size: 2.8rem;
     line-height: 1.3;
     margin-bottom: 2rem; }
 .about .highlight_small {
-  background: #cd25b0;
+  color: #cd25b0;
   width: 75%; }
-.about h1, .about a:hover, .about .section-link, .about .pin:after {
+.about h1, .about a:hover, .about .section-link, .about .sublink {
   color: #cd25b0; }
-.about .section-link {
+.about .section-link, .about .sublink {
   border-color: #cd25b0; }
-.about .pin {
-  top: 200px;
-  right: 10vw; }
+.about .bar, .about .thumbnail, .about .card {
+  background: #cd25b0; }
 
-.learn .pin {
-  background: #ff5000;
-  left: 20vw;
-  top: 200px; }
-.learn h1, .learn a:hover, .learn .section-link, .learn .pin:after {
+.learn h1, .learn a:hover, .learn .section-link, .learn .sublink {
   color: #ff5000; }
 .learn .highlight_small {
-  background: #ff5000;
-  float: left; }
-.learn .section-link {
+  color: #ff5000; }
+.learn .section-link, .learn .sublink {
   border-color: #ff5000; }
+.learn .bar, .learn .card {
+  background: #ff5000; }
+.learn .svg-flip .arrow {
+  fill: #ff5000; }
+.learn .postcard:hover .corner {
+  fill: #ff5000; }
+.learn .postcard:hover .arrow {
+  fill: white; }
 
-.research .pin {
-  background: #00c374;
-  top: 300px;
-  right: 40vw; }
-.research h1, .research a:hover, .research .section-link, .research .pin:after {
-  color: #00c374; }
 .research .highlight {
-  margin-left: 25%; }
-.research .section-link {
+  margin-left: 0; }
+.research h1, .research a:hover, .research .section-link, .research .sublink {
+  color: #00c374; }
+.research .section-link, .research .sublink {
   border-color: #00c374; }
+.research .bar, .research .card {
+  background: #00c374; }
+.research .svg-flip .arrow {
+  fill: #00c374; }
+.research .postcard:hover .corner {
+  fill: #00c374; }
+.research .postcard:hover .arrow {
+  fill: white; }
 
-.engage .pin {
-  background: #cd25b0;
-  left: 30vw; }
-.engage h1, .engage a:hover, .engage .section-link, .engage .pin:after {
+.engage .highlight {
+  margin-left: 25%; }
+.engage h1, .engage a:hover, .engage .section-link, .engage .sublink {
   color: #cd25b0; }
-.engage .section-link {
+.engage .section-link, .engage .sublink {
   border-color: #cd25b0; }
+.engage .bar, .engage .card {
+  background: #cd25b0; }
+
+.floater .postcard:first-child {
+  margin-top: 0; }
 
 .bulletins .floater {
   top: 20vh; }
@@ -344,6 +364,7 @@ time {
   background: #e0e0e0; }
 
 footer {
+  background: white;
   padding: 1rem; }
   footer .cell {
     padding: 1rem; }
@@ -355,7 +376,8 @@ footer {
   margin-bottom: 1rem; }
 
 .cols {
-  display: flex; }
+  display: flex;
+  width: 100%; }
 
 .cell {
   flex: 1; }
@@ -379,6 +401,9 @@ footer {
 .x {
   stroke: #4d4d4d;
   stroke-width: 2px; }
+
+.fixedPos {
+  position: fixed; }
 
 @media screen and (max-width: 950px) {
   header {
@@ -404,21 +429,32 @@ footer {
       display: block; } }
 @media screen and (max-width: 450px) {
   .floater {
-    top: 100vh;
-    width: 95%; }
+    width: 95%;
+    height: 45vh; }
+
+  .postcard {
+    width: 80%;
+    height: auto; }
+    .postcard .back {
+      height: auto; }
+    .postcard p {
+      margin-bottom: 0; }
 
   section {
-    min-height: 200vh;
-    background-attachment: scroll; }
+    background-attachment: scroll;
+    margin-bottom: 2rem; }
 
-  .about .pin {
-    top: 100px; }
-  .about .floater {
-    top: 70vh; }
+  .p3 {
+    left: 10%; }
 
-  .pattern {
-    background-size: 300%;
-    background-attachment: scroll; }
+  .pos4 {
+    left: 0; }
+
+  .p1 {
+    left: 5%; }
+
+  .quote {
+    font-size: 1rem; }
 
   h1 {
     font-size: 3.5rem; }
@@ -431,7 +467,8 @@ footer {
 
   .about .highlight_small, .highlight, .highlight_small {
     width: 100%;
-    padding: 1.5rem 1.2rem 2rem 1.2rem; }
+    padding: 1.5rem 1.2rem 2rem 1.2rem;
+    margin: 0 !important; }
 
   .highlight_small {
     width: 100%; }

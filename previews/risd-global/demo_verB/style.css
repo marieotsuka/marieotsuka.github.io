@@ -182,7 +182,7 @@ section {
   padding: 2rem 1.5rem;
   color: white; }
   .highlight_small .thumbnail {
-    padding-right: 1.5rem; }
+    margin-right: 1.5rem; }
 
 .pin {
   position: fixed;
@@ -383,7 +383,7 @@ footer {
     top: 70vh; }
 
   .pattern {
-    background-size: auto 300%;
+    background-size: auto 50%;
     background-attachment: scroll; }
 
   h1 {

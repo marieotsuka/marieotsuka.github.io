@@ -1,0 +1,430 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+$black: rgb(77,77,77);
+$grey: rgb(228,228,228);
+$pink: rgb(205, 37, 176);
+$orange: rgb(255,80,0);
+$green: rgb(0,195,116);
+// $purple: rgb(205,37,176);
+
+body{
+	font-family: "Theinhardt-Regular";
+	font-size: 18px;
+	line-height: 1.4;
+	background: center 75px / contain no-repeat fixed $grey url('../assets/svg/RISDGlobal_bg.svg');
+	color: $black;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
+h1 {
+	font-family: Theinhardt-Thin;
+	font-size: 4.5rem;
+}
+h2{
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+}
+h3, h4, h5, h6{
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+h3 {
+	font-family: Theinhardt-Medium;
+	font-size: 1.16rem;
+}
+
+.logo {
+	width: 80px;
+}
+
+
+// LINKS
+
+a {
+	color: $black;
+	text-decoration: none;
+}
+
+a:hover{
+    color: $black;
+    border-color: $black;
+}
+
+.section-link {
+    border: 2px solid $black;
+    padding: .5rem 1rem;
+}
+.sublink {
+    padding-bottom: 1px;
+    border-bottom: 2px solid $black;
+}
+
+
+p{
+	margin-bottom: 1rem;
+}
+
+.bar {
+	width: 225px;
+	height: 2px;
+	background: $black;
+	margin-bottom: 1rem;
+}
+.summary {
+	margin-bottom: 1rem;
+}
+
+.highlight{
+	padding: 2rem;
+	.summary{
+		color: $black;
+		font-size: 1.6rem;
+		line-height: 1.5;
+		margin-bottom: 2rem;
+	}
+}
+
+
+
+
+header {
+	position: fixed;
+	top:0;
+	background: white;
+	z-index: 50;
+	height: 60px;
+}
+
+nav {
+	height: 75px;
+	padding: 1rem;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: flex-start;
+	width: 100vw;
+	ul {
+		list-style-type: none;
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		margin-top: .3rem;
+	}
+}
+main {
+	max-width: 900px;
+	margin: auto;
+}
+section {
+	position: relative;
+	margin-bottom: 12rem;
+}
+
+section.about {
+	margin-bottom: 4rem;
+}
+
+img {
+	width: 100%;
+	display: block;
+}
+
+img:hover{
+	cursor: pointer;
+}
+
+.floater {
+	position: relative;
+	height: 80vh;
+	margin-top: 10vh;
+}
+
+.postcard{
+	position: absolute;
+	width: 600px;
+	height: 450px;
+	transition-property: opacity, background-color, transform;
+	transition-duration: .5s;
+	transition-timing-function: linear;
+	background-color: transparent;
+
+	&:hover{
+		z-index: 10;
+		opacity: 1;
+	}
+}
+
+.flipper{
+	position: static;
+}
+
+.card {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.front, .back{
+	position: absolute;
+	width: 100%;
+	// height: 100%;
+	backface-visibility: hidden;
+}
+
+.back{
+	background: white;
+	height: 450px;
+	transform: rotateY(180deg);
+	padding: 1rem;
+	
+	.cell {
+		padding: 0;
+	}
+	.cols{
+		height: 100%;
+	}
+	.col1{
+		align-self: flex-end;
+	}	
+	.col2{
+		border-left: 2px solid $black;
+
+	}
+	.col2 p{
+		padding-left: 1rem;
+		text-indent: -10px;
+	}
+}
+
+
+.flipped{
+	transform: rotateY(180deg);
+}
+
+.quote{
+	font-family: "Arnhem-Blond";
+	font-size: 1.5rem;
+	line-height: 1.4;
+}
+
+.card-info{
+	font-size: .9rem;
+}
+
+//monotone effect
+.mono {
+	mix-blend-mode: screen;
+	-webkit-filter: grayscale(100%) contrast(150%);
+	filter: grayscale(100%) contrast(150%);
+	opacity: 1;
+}
+
+.about .card{
+	background: $pink;
+}
+
+.p1 {
+	left: 100px;
+	top: 0;
+	opacity: 0.5;
+}
+
+.p2 {
+	left: 0;
+	top: 50px;
+	opacity: 0.75;
+}
+
+.p3 {
+	left: 200px;
+	top: 100px;
+}
+
+.flip {
+	position: absolute;
+	right: 0;
+	bottom: -7px;
+}
+
+.svg-flip{
+	width: 60px;
+	.corner{
+		fill: white;
+	}
+	.arrow{
+		fill: $pink;
+	}
+}
+.postcard:hover{
+	.corner{
+		fill: $pink;
+	}
+	.arrow{
+		fill: white;
+	}
+}
+
+.about {
+	.col1{
+		color: $pink;
+	}
+	.col2{
+		border-color: $pink;
+	}
+	.highlight .summary {
+		font-family: Theinhardt-Light;
+		font-size: 2.8rem;
+		line-height: 1.3;
+	}
+	a:hover{
+		color: $pink;
+		border-color: $pink;
+	}
+}
+
+
+.rome{
+	color: $pink;
+	a {
+		color: $pink;
+		border-color: $pink;
+	}
+	.bar {
+		background: $pink;
+	}
+	.thumbnail{
+		background-color: $pink;
+	}
+	.cols{
+		margin-left: 25%;
+	}
+}
+
+
+.learn-abroad{
+	color: $orange;
+	a {
+		color: $orange;
+	}
+	.bar {
+		background: $orange;
+	}
+	.card{
+		background: $orange;
+	}
+	.p3{
+		left: 0;
+	}
+	.p2{
+		left: 100px;
+	}
+	.section-link {
+		border-color: $orange;
+	}
+	.highlight_small{
+		margin-left: 50%;
+	}
+}
+
+
+// LINKS
+.section-link {
+	border: 2px solid $black;
+	padding: .5rem 1rem;
+}
+.sublink {
+	padding-bottom: 1px;
+	border-bottom: 2px solid $black;
+}
+
+a:hover{
+	color: $black;
+	border-color: $black;
+}
+
+
+
+
+.bulletins{
+	.floater{
+		top: 20vh;
+		left: 30vw;
+
+	}
+	.highlight{
+		padding: 0;
+	}
+	.scroll{
+		height: 330px;
+		overflow: auto;
+	}
+	h5, p{
+		font-size: 1rem;
+		padding: 1rem;
+	}
+}
+.bulletin{
+	padding: 1rem;
+}
+.bulletin_location, time{
+	font-size: .7rem;
+}
+
+.bulletin_title{
+	font-size: 1.5rem;
+	margin: .5rem 0;
+}
+time{
+	display: block;
+	margin-bottom: .5rem;
+}
+
+.news{
+	background: #e0e0e0;
+}
+
+footer{
+	background: white;
+	padding: 1rem;
+}
+.image{
+	width: 100%;
+	height: 200px;
+	background: gray;
+	margin-bottom: 1rem;
+}
+
+.cols{
+	display: flex;
+	justify-content:space-between;
+	.cell{
+		padding: 1rem;
+	}
+	.col1{
+		flex:1;
+	}
+	.col2{
+		flex:2;
+	}
+}
+
+
+.frame{
+	width: 100px;
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+}
+
+.frame.right{
+	left: auto;
+	right: 20px;
+	top: 100px;
+}

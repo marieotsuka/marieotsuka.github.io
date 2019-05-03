@@ -1,3 +1,4 @@
+//PINS
 
 * {
 	margin: 0;
@@ -234,7 +235,7 @@ section {
 	color: white;
 
 	.thumbnail{
-		padding-right: 1.5rem;
+		margin-right: 1.5rem;
 	}
 }
 
@@ -530,7 +531,7 @@ footer{
 	}
 
 	.pattern{
-		background-size: auto 300%;
+		background-size: auto 50%;
 		background-attachment:	scroll;
 	}
 
