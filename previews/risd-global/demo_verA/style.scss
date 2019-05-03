@@ -184,9 +184,12 @@ main {
 section {
 	position: relative;
 	margin-bottom: 12rem;
-	overflow: auto;
 }
-
+section::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 
 .floater {
@@ -228,6 +231,8 @@ section {
 	position: absolute;
 	width: 100%;
 	// height: 100%;
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
@@ -604,11 +609,11 @@ footer{
 	
 	.floater{
 		width: 95%;
-		height: 45vh;
+		height: 60vh;
 	}
 
 	.postcard{
-		width: 80%;
+		width: 90%;
 		height: auto;
 		.back {
 			height: auto;
@@ -624,7 +629,7 @@ footer{
 	}
 
 	.p3{
-		left: 10%;
+		left: 5%;
 	}
 	.pos4{
 		left: 0;

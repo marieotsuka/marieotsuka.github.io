@@ -140,8 +140,12 @@ main {
 
 section {
   position: relative;
-  margin-bottom: 12rem;
-  overflow: auto; }
+  margin-bottom: 12rem; }
+
+section::after {
+  content: "";
+  clear: both;
+  display: table; }
 
 .floater {
   position: relative;
@@ -173,6 +177,8 @@ section {
 .front, .back {
   position: absolute;
   width: 100%;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
   backface-visibility: hidden; }
 
 .back {
@@ -430,10 +436,10 @@ footer {
 @media screen and (max-width: 450px) {
   .floater {
     width: 95%;
-    height: 45vh; }
+    height: 60vh; }
 
   .postcard {
-    width: 80%;
+    width: 90%;
     height: auto; }
     .postcard .back {
       height: auto; }
@@ -445,7 +451,7 @@ footer {
     margin-bottom: 2rem; }
 
   .p3 {
-    left: 10%; }
+    left: 5%; }
 
   .pos4 {
     left: 0; }
