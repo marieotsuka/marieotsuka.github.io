@@ -515,8 +515,9 @@ footer{
 
 	section{
 		min-height: 200vh;
-		background-attachment:	scroll;
+		background-attachment:	scroll !important;
 		background-size: auto 100%;
+		background-position: bottom;
 	}
 
 	.about {
