@@ -203,18 +203,19 @@ nav {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 }
 
 .snapshot{
 	position: relative;
 	width: 800px;
 	margin-top: -10vh;
-	opacity: 0.8;
+	opacity: 0.9;
 }
 
 .snapshot:nth-child(2), .snapshot:nth-child(6){
-	margin-left: 40%;
+	margin-right: 0;
+	margin-left: auto;
 }
 
 .snapshot:nth-child(odd){

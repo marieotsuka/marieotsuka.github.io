@@ -15,6 +15,10 @@ $(document).ready(function(){
       $('body').removeClass('fixedPos');
     });
 
+
+    var image = document.querySelectorAll('snapshot');
+    new simpleParallax(image);
+
 });
 
 
