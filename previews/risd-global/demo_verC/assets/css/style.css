@@ -158,7 +158,8 @@ nav {
   position: relative;
   width: 800px;
   margin-top: -80px;
-  opacity: 0.9; }
+  opacity: 0.9;
+  transition: opacity 0.3s ease-in-out; }
 
 .snapshot:nth-child(2), .snapshot:nth-child(6) {
   margin-right: 0;
@@ -200,10 +201,21 @@ nav {
   margin-left: -15px; }
 
 .snapshot:hover {
-  opacity: 1; }
+  animation: fadeIn 1s forwards;
+  z-index: 50; }
   .snapshot:hover .pin {
     opacity: 1; }
 
+@keyframes fadeIn {
+  0% {
+    z-index: 1;
+    opacity: .9; }
+  10% {
+    z-index: 50;
+    opacity: .2; }
+  100% {
+    z-index: 50;
+    opacity: 1; } }
 /*-------------------------------------------
 	CHUNKS
 -------------------------------------------*/
