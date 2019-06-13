@@ -246,10 +246,10 @@ section {
   .snippet .thumbnail {
     margin-right: 1.5rem; }
 
-nav .about:hover .bar {
+nav .global:hover .bar {
   background: #cd25b0; }
 
-nav .learn:hover .bar {
+nav .learnAbroad:hover .bar {
   background: #ff5000; }
 
 nav .research:hover .bar {
