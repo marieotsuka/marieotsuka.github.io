@@ -157,7 +157,7 @@ nav {
 .snapshot {
   position: relative;
   width: 800px;
-  margin-top: -10vh;
+  margin-top: -80px;
   opacity: 0.9; }
 
 .snapshot:nth-child(2), .snapshot:nth-child(6) {
