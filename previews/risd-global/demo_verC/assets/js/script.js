@@ -1,11 +1,11 @@
 $.fn.moveIt = function(){
   var $window = $(window);
   var instances = [];
-  
+
   $(this).each(function(){
     instances.push(new moveItItem($(this)));
   });
-  
+
   window.addEventListener('scroll', function(){
     var scrollTop = $window.scrollTop();
     instances.forEach(function(inst){
@@ -41,8 +41,8 @@ $(document).ready(function(){
       $('body').removeClass('fixedPos');
     });
 
-    $('.snapshot').attr('data-scroll-speed', 1)
-    $('.snapshot:nth-child(2n)').attr('data-scroll-speed', 2)
+    $('.snapshot').attr('data-scroll-speed', 8)
+    // $('.snapshot:nth-child(2n)').attr('data-scroll-speed', 12)
 
     $('[data-scroll-speed]').moveIt();
 
@@ -61,7 +61,7 @@ $(document).ready(function(){
 
 // // Initialization
 // $(function(){
-  
+
 // });
 
 

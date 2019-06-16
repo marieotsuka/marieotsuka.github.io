@@ -24,7 +24,7 @@ body{
 
 
 /*-------------------------------------------
-	TYPOGRAPHY 
+	TYPOGRAPHY
 -------------------------------------------*/
 
 
@@ -44,10 +44,12 @@ h2{
 h3, h4, h5, h6{
 	font-size: 1rem;
 	margin-bottom: 1rem;
+
 }
 h3 {
 	font-family: "Theinhardt-Medium";
 	text-transform: uppercase;
+	letter-spacing: .5px;
 }
 
 %large-text {
@@ -78,16 +80,25 @@ a:hover{
 }
 
 .section-link {
-    border: 2px solid $black;
+	font-size: 1rem;
+    border: 1px solid $black;
     padding: .5rem 1rem;
 }
 
 a.sublink {
-	color: white;
+		font-size: 1rem;
+		color: white;
     padding-bottom: 1px;
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid white;
 }
-.highlight a.section-link:hover, a.sublink:hover{
+
+a.anchor-link {
+		color: white;
+		display: block;
+		margin-bottom: .5rem;
+}
+
+.highlight a.section-link:hover, .snippet a.sublink:hover, a.anchor-link:hover, .news a.anchor-link:hover{
 	color: $black;
 	border-color: $black;
 }
@@ -189,7 +200,7 @@ nav {
 }
 
 /*-------------------------------------------
-	LAYOUT
+	SNAPSHOTS
 -------------------------------------------*/
 .content {
 	position: absolute;
@@ -199,6 +210,11 @@ nav {
 	height: 100%;
 	pointer-events: none;
 }
+
+.highlight, .overview, .events, .announcements, .grid-snippet{
+	pointer-events: auto;
+}
+
 .snapshots{
 	position: absolute;
 	top: 0;
@@ -261,18 +277,18 @@ nav {
 }
 
 .snapshot:hover{
-	animation: fadeIn 1s forwards;
-	z-index: 50;
+	// animation: fadeIn 1s forwards;
 	.pin{
 		opacity: 1;
 	}
 }
 
-@keyframes fadeIn {
-  0% {z-index: 1; opacity: .9}
-  10% {z-index: 50; opacity: .2}
-  100% {z-index: 50; opacity: 1}
-}
+// @keyframes fadeIn {
+//   0% {z-index: 1; opacity: .9}
+//   10% {z-index: 50; opacity: .2}
+//   100% {z-index: 50; opacity: 1}
+// }
+
 
 
 
@@ -290,25 +306,26 @@ section {
 
 
 .floater{
-	position: absolute;
-	top: 50vh;
+	// position: absolute;
+
 	width: 80%;
+	margin: auto;
 	max-width: 1000px;
-	left: 50%;
-	-webkit-transform: translateX(-50%);
-	transform: translateX(-50%);
-	z-index: 30;
+	margin-top: 50vh;
+	// left: 50%;
+	// -webkit-transform: translateX(-50%);
+	// transform: translateX(-50%);
+	// z-index: 30;
 }
 
 
 .highlight, .overview{
-	pointer-events: auto;
 	background: white;
 	color: $light-black;
 	width: 75%;
 	padding: 2rem 2rem 4rem 2rem;
 }
-.highlight .summary, .overview .longSummary {
+.highlight .summary, .overview .long-summary {
 	@extend %medium-text;
 	margin-bottom: 2rem;
 }
@@ -356,17 +373,38 @@ nav .engage:hover .bar{
 	background: $pink;
 }
 
+
+.grid-snippet {
+	width: 100%;
+	background: white;
+	padding: 2rem;
+	.cols{
+			flex-wrap: wrap;
+			align-items: flex-start;
+	}
+	.cell {
+		min-width: 30%;
+		max-width: 30%;
+		margin-right: 1rem;
+	}
+}
 /*-------------------------------------------
 	SECTIONS
 -------------------------------------------*/
+.home {
+	.overview{
+		width: 100%;
+	}
+}
+.overview{
+		.summary {
+			@extend %large-text;
+		}
+}
 
 .global{
 	.highlight{
 		width: 100%;
-		.summary {
-			@extend %large-text;
-	
-		}
 	}
 	.snippet{
 		background: $pink;
@@ -385,7 +423,18 @@ nav .engage:hover .bar{
 
 }
 
+.landing h2{
+	@extend %large-text;
+}
 
+.grid-snippet h3{
+	font-family: "Theinhardt-Regular";
+	font-size: 1.3rem;
+	color: $orange;
+	text-transform: none;
+	margin: 1rem 0;
+
+}
 .learnAbroad{
 	.pin{
 		background: $orange;
@@ -400,6 +449,9 @@ nav .engage:hover .bar{
 	}
 	.section-link {
 		border-color: $orange;
+	}
+	h2, .overview .summary{
+		color: $orange;
 	}
 
 }
@@ -467,6 +519,11 @@ nav .engage:hover .bar{
 .event, .announcement{
 	padding: 1.5rem;
 	padding-top: 0;
+	&:hover{
+		background: white;
+		color: $pink;
+		cursor: pointer;
+	}
 }
 
 .event_title, .announcement_title{
@@ -477,7 +534,7 @@ nav .engage:hover .bar{
 }
 .event_info {
 	// font-size: .7rem;
-	color: rgba(255,255,255,.75);
+	opacity: .75;
 	.event_location, .event_date, .event_time{
 		display: inline-block;
 		margin-right: 1rem;
@@ -486,7 +543,6 @@ nav .engage:hover .bar{
 
 .announcement_title {
 	font-style: italic;
-	padding-bottom: 1.5rem;
 }
 
 footer{
@@ -499,7 +555,7 @@ footer{
 
 
 /*-------------------------------------------
-	Images 
+	Images
 -------------------------------------------*/
 
 img{
@@ -619,7 +675,7 @@ img{
 }
 
 @media screen and (max-width: 450px) {
-	
+
 	.floater{
 		top: 100vh;
 		width: 95%;
