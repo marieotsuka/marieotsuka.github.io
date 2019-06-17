@@ -46,13 +46,40 @@ $(document).ready(function(){
 
     $('[data-scroll-speed]').moveIt();
 
-    // var scene = document.getElementById('scene');
-    // var parallaxInstance = new Parallax(scene);
 
-    // $('.snapshot').paroller({ factor: 0.1, type: 'foreground', direction: 'vertical' });
-    // var f = setMovement.factor($this, width, options);
-    // $('#snap').parallor({factor: f});
-    // $('.snapshot:nth-child(2n)').attr('data-paroller-factor', 0.3)
+
+    $('.snapshot').each(function(){
+      //
+      //
+      // $(elem).width()
+      // $(elem).height()
+      $(this).mousemove(function(e){
+          // console.log(e.clientX,e.clientY);
+          $('.pin', this).css({
+            opacity: 1,
+            left:  e.pageX-$(this).offset().left-100,
+            top:   e.pageY-$(this).offset().top-50
+          });
+        }).mouseleave(function(){
+            $('.pin', this).css({
+            opacity: 0,
+          });
+        });
+    });
+
+    $('.snapshot').click(function(){
+      $(this).toggleClass('active');
+    });
+    //
+    //   $('img', this).mousemove( function(e){
+    //       console.log(e.clientX,e.clientY);
+    //         pin.css({
+    //           opacity: 1,
+    //           left:  e.pageX-100,
+    //           top:   e.pageY-50
+    //        });
+    //     });
+    // });
 
 });
 

@@ -14,44 +14,29 @@ $pink: rgb(205, 37, 176);
 $orange: rgb(255,80,0);
 $green: rgb(0,195,116);
 
+html {
+	font-size: 18px;
+}
 body{
 	font-family: "Theinhardt-Regular";
 	font-size: 18px;
+	font-weight: 400;
 	line-height: 1.4;
 	background: center 75px / contain no-repeat fixed $grey url("../svg/RISDGlobal_bg_arrow.svg");
 	color: $black;
 }
 
-
+$body-pad: 8%;
 /*-------------------------------------------
 	TYPOGRAPHY
 -------------------------------------------*/
 
 
-h1,h2,h3,h4,h5,h6{
-	font-weight: normal;
-}
-h1 {
+%extralarge-text {
 	font-family: "Theinhardt-Thin";
 	font-size: 4.5rem;
 	line-height: 1;
-	margin-bottom: 1rem;
 }
-h2{
-	font-size: 2.5rem;
-	margin-bottom: 1rem;
-}
-h3, h4, h5, h6{
-	font-size: 1rem;
-	margin-bottom: 1rem;
-
-}
-h3 {
-	font-family: "Theinhardt-Medium";
-	text-transform: uppercase;
-	letter-spacing: .5px;
-}
-
 %large-text {
 	font-family: "Theinhardt-Light";
 	font-size: 2.8rem;
@@ -59,11 +44,40 @@ h3 {
 	line-height: 1.3;
 }
 
- %medium-text {
+%medium-text {
  	font-size: 1.6rem;
  }
 
+%small-text {
+ 	font-size: .9rem;
+}
+
 $size4: 1rem;
+
+
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
+h1 {
+	@extend %extralarge-text;
+	margin-bottom: 1rem;
+}
+h2{
+	@extend %large-text;
+	margin-bottom: 1rem;
+}
+h3, h4, h5, h6{
+	@extend %small-text;
+	margin-bottom: 1rem;
+
+}
+h3 {
+	@extend %small-text;
+	font-family: 'Theinhardt-Medium';
+	text-transform: uppercase;
+	letter-spacing: .5px;
+}
+
 
 p{
 	margin-bottom: 1rem;
@@ -80,26 +94,32 @@ a:hover{
 }
 
 .section-link {
-	font-size: 1rem;
+		@extend %small-text;
     border: 1px solid $black;
     padding: .5rem 1rem;
 }
 
-a.sublink {
-		font-size: 1rem;
+.color-box a.section-link {
+		@extend %small-text;
 		color: white;
+		padding: 0;
     padding-bottom: 1px;
+		border: 0;
     border-bottom: 1px solid white;
 }
 
-a.anchor-link {
+.anchor-link {
 		color: white;
 		display: block;
 		margin-bottom: .5rem;
 }
 
-.highlight a.section-link:hover, .snippet a.sublink:hover, a.anchor-link:hover, .news a.anchor-link:hover{
-	color: $black;
+.section-link::after{
+	content: " \2192";
+}
+
+a.section-link:hover, a.sublink:hover, a.anchor-link:hover{
+	color: $black !important;
 	border-color: $black;
 }
 
@@ -129,15 +149,17 @@ a.anchor-link {
 header {
 	position: fixed;
 	top:0;
-	background: white;
+	background: rgba(255,255,255,0.9);
 	z-index: 50;
-	padding: .8rem 8vw 0rem 8vw;
+	padding: 1rem $body-pad 0rem $body-pad;
+	// height: 60px;
 	width: 100vw;
 	&:hover{
 		cursor: pointer;
+		background: rgba(255,255,255,1);
 		.expanded {
 			height: auto;
-			max-height:400px;
+			max-height: 500px;
 		}
 	}
 }
@@ -145,22 +167,21 @@ header {
 .menu {
 	display: none;
 	position: fixed;
-	left: 1rem;
-	top: 1rem;
-	width: 20px;
+	padding-top: .8rem;
+	padding-left: .5rem;
+	width: 100%;
 	.line{
+		width: 20px;
 		background: $black;
-		margin: 5px 0px;
+		margin: 5px 1rem;
 		height: 2px;
 	}
 }
 nav {
-	background: white;
 	ul{
 		list-style-type: none;
 	}
 	.expanded li{
-		font-size: .9rem;
 		&:last-child{
 			padding-bottom: 2rem;
 		}
@@ -172,26 +193,25 @@ nav {
 	}
 	a.main-menu{
 		margin-bottom: 0.5rem;
+		&::after{
+			content: "\2192";
+			display: inline-block;
+			transform: rotate(90deg);
+			position: relative;
+    	left: 5px;
+		}
 	}
 	.cell {
-		padding: 0 0.5rem;
+		padding: 0 1rem;
 	}
 	.expanded{
 		max-height: 0;
 		transition: max-height 500ms ease-in-out;
 		overflow: hidden;
-		background: white;
-		// position: fixed;
-		// z-index: 55;
-		// top: 53px;
-		// left: 0;
-		// width: 100vw;
-		// padding: 0rem 10vw;
 	}
 
 	.bar {
-		width: 100px;
-		height: 2px;
+		height: 1px;
 		background: $black;
 		margin-bottom: 1rem;
 		transition: background-color 200ms linear;
@@ -211,7 +231,7 @@ nav {
 	pointer-events: none;
 }
 
-.highlight, .overview, .events, .announcements, .grid-snippet{
+.highlight, .events, .announcements, .grid-snippet, footer{
 	pointer-events: auto;
 }
 
@@ -243,22 +263,27 @@ nav {
 	margin-left: 0;
 }
 
+.active{
+	z-index: 50;
+	opacity: 1;
+	// animation: fadeIn 1s forwards;
+}
+
 .pin{
 	position: absolute;
 	opacity: 0;
 	transition: opacity 0.3s ease-in-out;
 	background: $pink;
+	width: 200px;
 	color: white;
 	padding: 1rem;
 	font-size: .8rem;
 	text-align: center;
 	top: 100px;
-	z-index: 10;
-	.location {
-		font-family: Theinhardt-Bold;
-	}
+	z-index: 50;
 	left: 50px;
 	top: 50px;
+	cursor: pointer;
 
 	a{
 		color: white;
@@ -276,18 +301,21 @@ nav {
 	margin-left: -15px;
 }
 
-.snapshot:hover{
-	// animation: fadeIn 1s forwards;
-	.pin{
-		opacity: 1;
-	}
-}
-
-// @keyframes fadeIn {
-//   0% {z-index: 1; opacity: .9}
-//   10% {z-index: 50; opacity: .2}
-//   100% {z-index: 50; opacity: 1}
+// .snapshot img:hover{
+// 		opacity: 1;
 // }
+
+//
+// .snapshot:hover{
+// 	// animation: fadeIn 1s forwards;
+//
+// }
+
+@keyframes fadeIn {
+  0% {z-index: 1; opacity: .9}
+  10% {z-index: 50; opacity: .2}
+  100% {z-index: 50; opacity: 1}
+}
 
 
 
@@ -298,19 +326,22 @@ nav {
 
 
 section {
-	min-height: 150vh;
 	padding-top: 3rem;
-	padding-bottom: 12rem;
+	padding-bottom: 10rem;
 	position: relative;
+}
+
+section.top{
+	padding-bottom: 30rem;
 }
 
 
 .floater{
 	// position: absolute;
 
-	width: 80%;
+	width: 85%;
 	margin: auto;
-	max-width: 1000px;
+	max-width: 1050px;
 	margin-top: 50vh;
 	// left: 50%;
 	// -webkit-transform: translateX(-50%);
@@ -319,25 +350,24 @@ section {
 }
 
 
-.highlight, .overview{
+.highlight{
 	background: white;
+	@extend %medium-text;
 	color: $light-black;
 	width: 75%;
 	padding: 2rem 2rem 4rem 2rem;
 }
-.highlight .summary, .overview .long-summary {
-	@extend %medium-text;
-	margin-bottom: 2rem;
+
+.overview{
+	.summary {
+		@extend %large-text;
+	}
 }
-// .overview .summary {
-// 	font-size: $size3;
-// 	line-height: 1.5;
-//
-// }
 
 .align-right {
 	.highlight, .snippet{
-		float: right;
+		margin-right: 0;
+		margin-left: auto;
 	}
 }
 
@@ -363,7 +393,7 @@ section {
 nav .global:hover .bar{
 	background: $pink;
 }
-nav .learnAbroad:hover .bar{
+nav .learn-abroad:hover .bar{
 	background: $orange;
 }
 nav .research:hover .bar{
@@ -396,11 +426,6 @@ nav .engage:hover .bar{
 		width: 100%;
 	}
 }
-.overview{
-		.summary {
-			@extend %large-text;
-		}
-}
 
 .global{
 	.highlight{
@@ -410,7 +435,7 @@ nav .engage:hover .bar{
 		background: $pink;
 		width: 75%;
 	}
-	h1,a:hover,.section-link,.pin:after {
+	h1, a:hover,.highlight .section-link,.pin:after {
 		color: $pink;
 	}
 	.section-link {
@@ -423,10 +448,6 @@ nav .engage:hover .bar{
 
 }
 
-.landing h2{
-	@extend %large-text;
-}
-
 .grid-snippet h3{
 	font-family: "Theinhardt-Regular";
 	font-size: 1.3rem;
@@ -435,7 +456,7 @@ nav .engage:hover .bar{
 	margin: 1rem 0;
 
 }
-.learnAbroad{
+.learn-abroad{
 	.pin{
 		background: $orange;
 		left: 20vw;
@@ -488,7 +509,6 @@ nav .engage:hover .bar{
 
 .news{
 	.floater{
-		top: 20vh;
 		display: flex;
 	}
 	.highlight{
@@ -499,7 +519,8 @@ nav .engage:hover .bar{
 		overflow: auto;
 	}
 	h3, p{
-		margin: 1.5rem;
+		padding: 1.5rem;
+		margin: 0;
 	}
 }
 
@@ -524,6 +545,7 @@ nav .engage:hover .bar{
 		color: $pink;
 		cursor: pointer;
 	}
+
 }
 
 .event_title, .announcement_title{
@@ -533,7 +555,7 @@ nav .engage:hover .bar{
 	border-top: 1px solid white;
 }
 .event_info {
-	// font-size: .7rem;
+	@extend %small-text;
 	opacity: .75;
 	.event_location, .event_date, .event_time{
 		display: inline-block;
@@ -543,11 +565,12 @@ nav .engage:hover .bar{
 
 .announcement_title {
 	font-style: italic;
+	font-size: 1rem;
 }
 
 footer{
-	background: white;
-	padding: .8rem 8vw 0rem 8vw;
+	background: rgba(255,255,255,.9);
+	padding: .8rem $body-pad 0rem $body-pad;
 	.cell{
 		padding: 1rem;
 	}
@@ -564,10 +587,11 @@ img{
 }
 
 .logo {
-	width: 80px;
+	width: 60px;
+	opacity: 0.5;
 	position: fixed;
-	top: .6rem;
-	right: 1rem;
+	top: .8rem;
+	right: 2rem;
 	z-index: 60;
 }
 
@@ -617,7 +641,8 @@ img{
 
 .close{
 	width: 20px;
-	margin: .5rem;
+	margin: 1rem;
+	// margin-left: 1rem;
 	display: none;
 	&:hover{
 		.x{
@@ -637,9 +662,10 @@ img{
 
 
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1120px) {
 	header {
-		height: 50px;
+		height: 60px;
+		padding: 0;
 		.expanded {
 			height: auto;
 			max-height: none;
@@ -650,12 +676,14 @@ img{
 	}
 	nav{
 		display: none;
-		padding: 0 .5rem .5rem .5rem;
+		padding: 0.5rem;
+		padding-top: 0;
 		width: 50vw;
 		height: 100vh;
 		position: fixed;
 		left: 0;
 		overflow: auto;
+		background: white;
 
 		.cols{
 			display: block;
@@ -672,58 +700,104 @@ img{
 		}
 	}
 
+	.snapshot {
+		width: 500px;
+	}
+
 }
 
 @media screen and (max-width: 450px) {
-
+	section.top{
+		padding-bottom: 10rem;
+	}
+	section{
+		padding-bottom: 8rem;
+	}
 	.floater{
-		top: 100vh;
 		width: 95%;
 	}
 
-	section{
-		min-height: 200vh;
-		background-attachment:	scroll !important;
-		background-size: auto 100%;
-		background-position: bottom;
+	.news .floater{
+		display: block;
 	}
 
-	.about {
-		.pin{
-		top: 100px;
-		}
-		.floater{
-			top:70vh
-		}
+	.events{
+		margin-right: 0;
 	}
 
-	.pattern{
-		background-size: auto 50%;
-		background-attachment:	scroll;
+	.color-box{
+		margin: 1rem 0;
 	}
 
-	h1{
-		font-size: 3.5rem;
+	.event, .announcement{
+		padding: 1rem;
+		padding-top: 0rem;
 	}
+
+	.event_title, .announcement_title{
+		font-size: 1.2rem;
+		padding-top: 1rem;
+	}
+	.event-info{
+
+	}
+
+	.news h3, .news p{
+		padding: 1rem;
+	}
+
+	.snapshot {
+		width: 80vw;
+		margin-top: -5vh;
+	}
+
+	.pin{
+		padding: .5em;
+		width: 150px;
+		font-size: .7rem;
+	}
+	.snapshot:nth-child(2), .snapshot:nth-child(6), .snapshot:nth-child(9){
+		margin-bottom: 120vh;
+	}
+
+	.snapshot:nth-child(even){
+		margin-right: auto;
+		margin-left: 0;
+	}
+
+	.snapshot:nth-child(odd){
+		margin-right: 0;
+		margin-left: auto;
+	}
+
+
 	nav{
 		width: 100vw;
 	}
 
-	.about .highlight .summary {
-		font-size: 1.6rem;
-	}
-	.about .snippet, .highlight, .snippet {
-		width: 100%;
+	.snippet{
+		width: 100% !important;
 		padding: 1.5rem 1.2rem 2rem 1.2rem;
+		.thumbnail{
+    	width: 70%;
+		}
 	}
-	.snippet {
+
+	.highlight {
 		width: 100%;
-	}
-	.highlight .summary{
 		font-size: 1.2rem;
-	}
-	.research .highlight {
-		margin-left: 0;
+		line-height: 1.3;
+		h1{
+			font-size: 2.6rem;
+			font-family: "Theinhardt-Light";
+		}
+		.summary{
+			font-size: 1.2rem;
+			font-family: "Theinhardt-Regular";
+			letter-spacing: 0;
+		}
+		padding: 1rem;
+		padding-bottom: 2rem;
 	}
 
 	.cols{
@@ -735,11 +809,12 @@ img{
 
 	footer{
 		padding: 0;
+		padding-bottom: 5rem;
 	}
 
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1120px) {
 	.menu {
 		display: none;
 	}
