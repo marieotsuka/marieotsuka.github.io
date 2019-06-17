@@ -149,7 +149,7 @@ nav .cell {
   padding: 0 1rem; }
 nav .expanded {
   max-height: 0;
-  transition: max-height 500ms ease-in-out;
+  transition: max-height 400ms ease-in-out;
   overflow: hidden; }
 nav .bar {
   height: 1px;
@@ -532,7 +532,7 @@ img {
     margin-right: 0; }
 
   .color-box {
-    margin: 1rem 0; }
+    margin: 2.5vw 0; }
 
   .event, .announcement {
     padding: 1rem;

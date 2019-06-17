@@ -31,12 +31,12 @@ $(document).ready(function(){
     //   $('.expanded').eachtoggleClass('dropdown');
     // });
     $('.menu').click(function(){
-      $('nav').slideDown();
+      $('nav').slideDown(250);
       $('header').removeClass('collapsed');
       $('body').addClass('fixedPos');
     });
     $('.close').click(function(){
-      $('nav').slideUp();
+      $('nav').slideUp(250);
       $('header').addClass('collapsed');
       $('body').removeClass('fixedPos');
     });
@@ -70,6 +70,14 @@ $(document).ready(function(){
     $('.snapshot').click(function(){
       $(this).toggleClass('active');
     });
+
+    $('.floater').click(function(){
+        $('.snapshot').removeClass('active');
+    });
+
+    // $('.snapshots').click(function(){
+    //   $('.snapshot').removeClass('active');
+    // });
     //
     //   $('img', this).mousemove( function(e){
     //       console.log(e.clientX,e.clientY);
@@ -82,6 +90,19 @@ $(document).ready(function(){
     // });
 
 });
+
+
+// $(document).on("click", function(e) {
+//   console.log (  );
+//   // $('.snapshot').removeClass('active');
+//   //
+//   if ($(e.target).attr('class')=="pin_info") {
+//     // console.log ($(e.target.attr('class'));
+//     $('.snapshot').removeClass('active');
+//   }else{
+//       $('.snapshot').removeClass('active');
+//   }
+// });
 
 
 
