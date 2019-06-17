@@ -719,6 +719,7 @@ img{
 
 	.news .floater{
 		display: block;
+		margin-top: 0;
 	}
 
 	.events{
@@ -756,8 +757,12 @@ img{
 		width: 150px;
 		font-size: .7rem;
 	}
-	.snapshot:nth-child(2), .snapshot:nth-child(6), .snapshot:nth-child(9){
+	.snapshot:nth-child(2), .snapshot:nth-child(6){
 		margin-bottom: 120vh;
+	}
+
+	.snapshot:nth-child(9){
+		margin-bottom: 80vh;
 	}
 
 	.snapshot:nth-child(even){
