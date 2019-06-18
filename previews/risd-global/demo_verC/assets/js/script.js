@@ -75,6 +75,15 @@ $(document).ready(function(){
         $('.snapshot').removeClass('active');
     });
 
+
+    $('.toggle .option').click(function(){
+      $('.toggle .option').removeClass('selected');
+      $(this).toggleClass('selected');
+    });
+
+    $('.planner-year h3').click(function(){
+      $(this).next('.accordion-expanded').slideToggle();
+    });
     // $('.snapshots').click(function(){
     //   $('.snapshot').removeClass('active');
     // });

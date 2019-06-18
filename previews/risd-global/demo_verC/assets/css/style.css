@@ -26,12 +26,12 @@ h2, .overview .summary {
   font-family: "Theinhardt-Light";
   font-size: 2.8rem;
   letter-spacing: -.5px;
-  line-height: 1.3; }
+  line-height: 1.2; }
 
 .highlight, .event_title, .announcement_title {
   font-size: 1.6rem; }
 
-h3, h4, h5, h6, .section-link, .color-box a.section-link, .event_info {
+h3, h4, h5, h6, .section-link, .color-box a.section-link, .grid .section-link, .toggle, .event_info {
   font-size: .9rem; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -51,6 +51,9 @@ h3 {
   text-transform: uppercase;
   letter-spacing: .5px; }
 
+h4 {
+  font-size: 1.3rem; }
+
 p {
   margin-bottom: 1rem; }
 
@@ -66,7 +69,7 @@ a:hover {
   border: 1px solid #4d4d4d;
   padding: .5rem 1rem; }
 
-.color-box a.section-link {
+.color-box a.section-link, .grid .section-link {
   color: white;
   padding: 0;
   padding-bottom: 1px;
@@ -77,6 +80,12 @@ a:hover {
   color: white;
   display: block;
   margin-bottom: .5rem; }
+  .anchor-link::after {
+    content: "\2192";
+    display: inline-block;
+    transform: rotate(90deg);
+    position: relative;
+    left: 5px; }
 
 .section-link::after {
   content: " \2192"; }
@@ -99,6 +108,23 @@ a.section-link:hover, a.sublink:hover, a.anchor-link:hover {
 
 .col2 {
   flex: 2; }
+
+.grid {
+  width: 100%;
+  background: white;
+  padding: 2rem; }
+  .grid .cols {
+    flex-wrap: wrap;
+    align-items: flex-start; }
+  .grid .cell {
+    width: calc(33.3333% - 2rem);
+    margin: 1rem 0;
+    margin-right: 2rem;
+    flex: none; }
+  .grid .cell:nth-child(3n) {
+    margin-right: 0; }
+  .grid .grid-thumbnail {
+    margin-bottom: 1rem; }
 
 /*-------------------------------------------
 	HEADER & NAVIGATION
@@ -162,18 +188,18 @@ nav .bar {
 -------------------------------------------*/
 .content {
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none; }
 
-.highlight, .events, .announcements, .grid-snippet, footer {
+.highlight, .events, .announcements, .grid, footer {
   pointer-events: auto; }
 
 .snapshots {
   position: absolute;
-  top: 0;
+  top: 100px;
   left: 0;
   width: 100vw; }
 
@@ -238,7 +264,7 @@ nav .bar {
     z-index: 50;
     opacity: 1; } }
 /*-------------------------------------------
-	CHUNKS
+	MODULES
 -------------------------------------------*/
 section {
   padding-top: 3rem;
@@ -246,13 +272,15 @@ section {
   position: relative; }
 
 section.top {
-  padding-bottom: 30rem; }
+  padding-bottom: 100vh; }
+  section.top .highlight {
+    width: 100%; }
 
 .floater {
   width: 85%;
   margin: auto;
   max-width: 1050px;
-  margin-top: 50vh; }
+  margin-top: 30vh; }
 
 .highlight {
   background: white;
@@ -264,15 +292,21 @@ section.top {
   margin-right: 0;
   margin-left: auto; }
 
+.color-box {
+  color: white; }
+
 .snippet {
   pointer-events: auto;
   width: 50%;
-  padding: 2rem 1.5rem;
-  color: white; }
+  padding: 2rem 1.5rem; }
   .snippet .summary {
     color: rgba(255, 255, 255, 0.75); }
   .snippet .thumbnail {
     margin-right: 1.5rem; }
+
+.snippet-wide {
+  width: 75%;
+  margin-bottom: 1rem; }
 
 nav .global:hover .bar {
   background: #cd25b0; }
@@ -286,29 +320,72 @@ nav .research:hover .bar {
 nav .engage:hover .bar {
   background: #cd25b0; }
 
-.grid-snippet {
-  width: 100%;
-  background: white;
-  padding: 2rem; }
-  .grid-snippet .cols {
-    flex-wrap: wrap;
-    align-items: flex-start; }
-  .grid-snippet .cell {
-    min-width: 30%;
-    max-width: 30%;
-    margin-right: 1rem; }
+/*-------------------------------------------
+	PLANNER
+-------------------------------------------*/
+.toggle {
+  width: 200px;
+  display: flex;
+  border: 2px solid #4d4d4d; }
+  .toggle .option {
+    flex: 1;
+    padding: .5rem;
+    text-align: center; }
+  .toggle .selected, .toggle .option:hover {
+    color: white;
+    background: #4d4d4d;
+    cursor: pointer; }
+
+.planner-year {
+  margin-top: 3rem;
+  padding-top: .5rem;
+  border-top: 1px solid #4d4d4d; }
+  .planner-year a {
+    font-size: 1rem;
+    text-decoration: underline;
+    display: block; }
+
+.planner-line {
+  margin-left: 25%;
+  margin-right: 1rem;
+  width: 8px; }
+
+svg .l {
+  fill: none;
+  stroke: #ff5000;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-width: 8px; }
+
+.planner-item {
+  display: flex; }
+
+.planner-details h3 {
+  margin-bottom: 0; }
+
+.disabled {
+  opacity: .3; }
+
+.key h3 {
+  display: inline-block; }
+
+.accordion-title {
+  cursor: pointer; }
+  .accordion-title:hover {
+    opacity: .5; }
+  .accordion-title::after {
+    content: "\2039";
+    display: inline-block;
+    transform: rotate(-90deg);
+    position: relative;
+    left: 5px; }
 
 /*-------------------------------------------
-	SECTIONS
+	SECTION COLORS
 -------------------------------------------*/
 .home .overview {
   width: 100%; }
 
-.global .highlight {
-  width: 100%; }
-.global .snippet {
-  background: #cd25b0;
-  width: 75%; }
 .global h1, .global a:hover, .global .highlight .section-link, .global .pin:after {
   color: #cd25b0; }
 .global .section-link {
@@ -316,43 +393,30 @@ nav .engage:hover .bar {
 .global .pin {
   top: 200px;
   right: 10vw; }
-
-.grid-snippet h3 {
-  font-family: "Theinhardt-Regular";
-  font-size: 1.3rem;
-  color: #ff5000;
-  text-transform: none;
-  margin: 1rem 0; }
+.global .color-box, .global .toggle .option .selected {
+  background: #cd25b0; }
 
 .learn-abroad .pin {
   background: #ff5000;
   left: 20vw;
   top: 200px; }
-.learn-abroad h1, .learn-abroad a:hover, .learn-abroad .section-link, .learn-abroad .pin:after {
+.learn-abroad h1, .learn-abroad h2, .learn-abroad h4, .learn-abroad a:hover, .learn-abroad .highlight .section-link, .learn-abroad .pin:after, .learn-abroad .grid a.section-link, .learn-abroad .overview .summary, .learn-abroad .toggle, .learn-abroad .planner-year h3, .learn-abroad .planner-year a, .learn-abroad .event:hover, .learn-abroad .announcement:hover {
   color: #ff5000; }
-.learn-abroad .snippet {
-  background: #ff5000; }
-.learn-abroad .section-link {
+.learn-abroad .section-link, .learn-abroad .toggle, .learn-abroad .planner-year {
   border-color: #ff5000; }
-.learn-abroad h2, .learn-abroad .overview .summary {
-  color: #ff5000; }
+.learn-abroad .color-box, .learn-abroad .toggle .option.selected, .learn-abroad .toggle .option:hover {
+  background: #ff5000; }
 
 .research .pin {
   background: #00c374;
   top: 300px;
   right: 40vw; }
-.research h1, .research a:hover, .research .section-link, .research .pin:after {
+.research h1, .research a:hover, .research .highlight .section-link, .research .pin:after {
   color: #00c374; }
 .research .section-link {
   border-color: #00c374; }
-
-.engage .pin {
-  background: #cd25b0;
-  left: 30vw; }
-.engage h1, .engage a:hover, .engage .section-link, .engage .pin:after {
-  color: #cd25b0; }
-.engage .section-link {
-  border-color: #cd25b0; }
+.research .color-box {
+  background: #00c374; }
 
 /*-------------------------------------------
 	News
@@ -374,10 +438,6 @@ nav .engage:hover .bar {
 
 .announcements {
   flex: 1; }
-
-.events, .announcements {
-  background: #cd25b0;
-  color: white; }
 
 .event, .announcement {
   padding: 1.5rem;
