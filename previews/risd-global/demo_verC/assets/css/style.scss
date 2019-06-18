@@ -367,7 +367,7 @@ section {
 }
 
 section.top{
-	padding-bottom: 100vh;
+	padding-bottom: 80vh;
 	.highlight{
 		width: 100%;
 	}
@@ -382,7 +382,6 @@ section.top{
 	width: 85%;
 	margin: auto;
 	max-width: 1050px;
-	margin-top: 30vh;
 	// left: 50%;
 	// -webkit-transform: translateX(-50%);
 	// transform: translateX(-50%);
@@ -664,6 +663,8 @@ svg .l{
 footer{
 	background: rgba(255,255,255,.9);
 	padding: .8rem $body-pad 0rem $body-pad;
+	position: relative;
+  top: 220px;
 	.cell{
 		padding: 1rem;
 	}

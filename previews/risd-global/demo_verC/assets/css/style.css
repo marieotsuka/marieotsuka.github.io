@@ -272,15 +272,14 @@ section {
   position: relative; }
 
 section.top {
-  padding-bottom: 100vh; }
+  padding-bottom: 80vh; }
   section.top .highlight {
     width: 100%; }
 
 .floater {
   width: 85%;
   margin: auto;
-  max-width: 1050px;
-  margin-top: 30vh; }
+  max-width: 1050px; }
 
 .highlight {
   background: white;
@@ -464,7 +463,9 @@ svg .l {
 
 footer {
   background: rgba(255, 255, 255, 0.9);
-  padding: 0.8rem 8% 0rem 8%; }
+  padding: 0.8rem 8% 0rem 8%;
+  position: relative;
+  top: 220px; }
   footer .cell {
     padding: 1rem; }
 
